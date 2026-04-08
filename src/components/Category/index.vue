@@ -1,10 +1,11 @@
 <template>
-    <div>
-        <h1>首页</h1>
-    </div>
+  <div>
+    分类器组件
+  </div>
 </template>
 
 <script setup lang="ts">
+
 </script>
 
 <style scoped></style>
