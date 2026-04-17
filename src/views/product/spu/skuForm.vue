@@ -14,7 +14,7 @@
     </el-form-item>
     <el-form-item label="平台属性">
       <el-form :inline="true">
-        <el-form-item v-for="(item, _index) in attrArr" :key="item.id" :label="item.attrName">
+        <el-form-item v-for="(item, _index) in attrArr" :key="item.id" :label="item.attrName" style="width: 180px;">
           <el-select v-model="item.attrIdAndValueId">
             <el-option :value="`${item.id}:${attrValue.id}`" v-for="(attrValue, _index) in item.attrValueList"
               :key="attrValue.id" :label="attrValue.valueName"></el-option>
@@ -24,7 +24,7 @@
     </el-form-item>
     <el-form-item label="销售属性">
       <el-form :inline="true">
-        <el-form-item :label="item.saleAttrName" v-for="(item, _index) in saleArr" :key="item.id">
+        <el-form-item :label="item.saleAttrName" v-for="(item, _index) in saleArr" :key="item.id" style="width: 180px;">
           <el-select v-model="item.saleIdAndValueId">
             <el-option :value="`${item.id}:${saleAttrValue.id}`"
               v-for="(saleAttrValue, _index) in item.spuSaleAttrValueList" :key="saleAttrValue.id"
@@ -168,8 +168,8 @@ const save = async () => {
       message: '添加SKU失败'
     })
   }
-
 }
+
 //自定义事件的方法
 let $emit = defineEmits(['changeScene']);
 </script>
