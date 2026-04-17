@@ -13,13 +13,13 @@
       <el-table-column label="价格" width="150px" prop="price"></el-table-column>
       <el-table-column label="操作" width="250px" fixed="right">
         <template #="{ row }">
-          <el-button type="primary" size="small" :icon="row.isSale == 1 ? 'Bottom' : 'Top'"
-            @click="updateSale(row)"></el-button>
+          <el-button :type="row.isSale == 1 ? 'info' : 'success'" size="small"
+            :icon="row.isSale == 1 ? 'Bottom' : 'Top'" @click="updateSale(row)"></el-button>
           <el-button type="primary" size="small" icon="Edit" @click="updateSku"></el-button>
-          <el-button type="primary" size="small" icon="InfoFilled" @click="findSku(row)"></el-button>
+          <el-button type="warning" size="small" icon="InfoFilled" @click="findSku(row)"></el-button>
           <el-popconfirm :title="`你确定要删除${row.skuName}?`" width="200px" @confirm="removeSku(row.id)">
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete"></el-button>
+              <el-button type="danger" size="small" icon="Delete"></el-button>
             </template>
           </el-popconfirm>
         </template>
@@ -63,15 +63,12 @@
         </el-row>
         <el-row style="margin:10px 0px;">
           <el-col :span="6">商品图片</el-col>
-          <!-- <el-col :span="18">
+          <el-col :span="18">
             <el-carousel :interval="4000" type="card" height="200px">
               <el-carousel-item v-for="item in skuInfo.skuImageList" :key="item.id">
                 <img :src="item.imgUrl" alt="" style="width:100%;height: 100%;">
               </el-carousel-item>
             </el-carousel>
-          </el-col> -->
-          <el-col :span="18">
-            <img :src="skuInfo.skuDefaultImg" alt="" style="width:150px;height: auto">
           </el-col>
         </el-row>
       </template>

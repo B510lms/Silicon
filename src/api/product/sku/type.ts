@@ -14,6 +14,15 @@ export interface saleArr {
   saleAttrId: number | string //属性ID
   saleAttrValueId: number | string //属性值的ID
 }
+//SKU图片的ts类型
+export interface SkuImg {
+  id?: number
+  imgName?: string
+  imgUrl?: string
+  isDefault?: string,
+  skuId?: number,
+  spuImgId?: number
+}
 export interface SkuData {
   category3Id?: string | number //三级分类的ID
   spuId?: string | number //已有的SPU的ID
@@ -24,7 +33,8 @@ export interface SkuData {
   skuDesc?: string //sku的描述
   skuAttrValueList?: Attr[]
   skuSaleAttrValueList?: saleArr[]
-  skuDefaultImg?: string //sku图片地址
+  skuDefaultImg?: string //sku默认图片地址
+  skuImageList?: SkuImg[] //SKU图片列表
   isSale?: number //控制商品的上架与下架
   id?: number
 }

@@ -87,7 +87,8 @@ let skuParams = reactive<SkuData>({
   ],
   "skuSaleAttrValueList": [//销售属性
   ],
-  "skuDefaultImg": "",//sku图片地址
+  "skuDefaultImg": "",//sku默认图片地址
+  "skuImageList": [],//SKU图片列表
 })
 //当前子组件的方法对外暴露
 const initSkuData = async (c1Id: number | string, c2Id: number | string, spu: any) => {
@@ -115,13 +116,9 @@ const cancel = () => {
 
 //设置默认图片的方法回调
 const handler = (row: any) => {
-  //点击的时候,全部图片的的复选框不勾选
-  imgArr.value.forEach((item: any) => {
-    table.value.toggleRowSelection(item, false);
-  });
-  //选中的图片才勾选
+  //勾选当前图片
   table.value.toggleRowSelection(row, true);
-  //收集图片地址
+  //设置默认图片地址
   skuParams.skuDefaultImg = row.imgUrl;
 }
 //对外暴露方法
@@ -153,6 +150,17 @@ const save = async () => {
     }
     return prev;
   }, []);
+  //收集选中的图片数据
+  const selectedRows = table.value.getSelectionRows();
+  skuParams.skuImageList = selectedRows.map((item: any) => {
+    return {
+      id: item.id,
+      imgName: item.imgName,
+      imgUrl: item.imgUrl,
+      spuImgId: item.id,
+      isDefault: item.imgUrl === skuParams.skuDefaultImg ? '1' : '0'
+    }
+  });
   //添加SKU的请求
   let result: any = await reqAddSku(skuParams);
   if (result.code == 200) {
