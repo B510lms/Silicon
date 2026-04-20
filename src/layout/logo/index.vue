@@ -1,13 +1,16 @@
 <template>
   <div class="logo" v-if="setting.logoHidden">
     <img :src="setting.logo" alt="">
-    <p style="white-space: nowrap;">{{ setting.title }}</p>
+    <p style="white-space: nowrap;" v-if="!layoutSettingStore.fold">{{ setting.title }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 //引入设置标题与logo这配置文件
 import setting from '@/setting';
+//获取骨架的小仓库
+import useLayOutSettingStore from '@/store/modules/setting';
+let layoutSettingStore = useLayOutSettingStore();
 </script>
 <script lang="ts">
 export default {

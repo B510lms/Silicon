@@ -6,7 +6,8 @@
     <!-- 表单元素 -->
     <el-form>
       <el-form-item label="主题颜色">
-        <el-color-picker @change="setColor" v-model="color" size="small" show-alpha :predefine="predefineColors" />
+        <el-color-picker @change="setColor" :teleported="false" v-model="color" size="small" show-alpha
+          :predefine="predefineColors" />
       </el-form-item>
       <el-form-item label="暗黑模式">
         <el-switch @change="changeDark" v-model="dark" class="mt-2" style="margin-left: 24px" inline-prompt
