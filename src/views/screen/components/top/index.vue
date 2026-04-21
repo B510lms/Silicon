@@ -62,6 +62,7 @@ onBeforeUnmount(() => {
             line-height: 40px;
             color: #29fcff;
             font-size: 20px;
+            cursor: pointer;
         }
     }
 
@@ -101,6 +102,7 @@ onBeforeUnmount(() => {
         .time {
             color: #29fcff;
             font-size: 20px;
+            margin-right: 40px;
         }
 
 

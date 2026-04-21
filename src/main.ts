@@ -23,5 +23,8 @@ app.use(ElementPlus, {
 app.use(gloablComponent);
 app.use(router);
 app.use(pinia);
+//引入自定义指令文件
+import { isHasButton } from '@/directive/has'
+isHasButton(app)
 app.mount('#app')
 

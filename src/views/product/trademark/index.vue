@@ -2,7 +2,8 @@
   <div>
     <el-card class="box-card">
       <!-- 卡片顶部添加品牌按钮 -->
-      <el-button type="primary" size="default" icon="Plus" @click="addTrademark">添加品牌</el-button>
+      <el-button type="primary" size="default" icon="Plus" @click="addTrademark"
+        v-has="`btn.Trademark.add`">添加品牌</el-button>
       <!-- 表格组件：用于展示已有得平台数据 -->
       <el-table style="margin:10px 0px" border :data="trademarkArr">
         <el-table-column label="序号" width="80px" align="center" type="index"></el-table-column>
