@@ -39,7 +39,7 @@
           <el-table-column label="序号" type="index" width="80px" align="center"></el-table-column>
           <el-table-column label="属性值名称">
             <template #="{ row, $index }">
-              <el-input :ref="(vc: any) => inputArr[$index] = vc" v-if="row.flag" @blur="toLook(row, $index)"
+              <el-input :ref="(vc: any) => inputArr[$index] = vc" v-if="row.flag" @keyup.enter="toLook(row, $index)" @blur="toLook(row, $index)"
                 size="small" placeholder="请你输入属性值名称" v-model="row.valueName"></el-input>
               <div v-else @click="toEdit(row, $index)">{{ row.valueName }}</div>
             </template>
@@ -91,6 +91,7 @@ const getAttr = async () => {
 
 const addAttr = () => {
   Object.assign(attrParams, {
+    id: 0,
     attrName: "",
     categoryId: categoryStore.c3Id,
     categoryLevel: 3,

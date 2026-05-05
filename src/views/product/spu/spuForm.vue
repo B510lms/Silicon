@@ -48,7 +48,7 @@
               v-for="(item, index) in row.spuSaleAttrValueList" :key="row.id" class="mx-1" closable>
               {{ item.saleAttrValueName }}
             </el-tag>
-            <el-input @blur="toLook(row)" v-model="row.saleAttrValue" v-if="row.flag == true" placeholder="请你输入属性值"
+            <el-input  @keyup.enter="toLook(row)" @blur="toLook(row)" v-model="row.saleAttrValue" v-if="row.flag == true" placeholder="请你输入属性值"
               size="small" style="width:100px"></el-input>
             <el-button @click="toEdit(row)" v-else type="primary" size="small" icon="Plus"></el-button>
           </template>
